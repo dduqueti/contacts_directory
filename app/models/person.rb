@@ -43,6 +43,10 @@ class Person < ActiveRecord::Base
 		Person.order(:first_name, :last_name)
 	end
 
+	def self.get_all_emails
+		Person.pluck(:email)
+	end
+
 	# Instance methods
 
 	def display_name
