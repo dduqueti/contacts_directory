@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @person.first_name
+%p
+  %b Last name:
+  = @person.last_name
+%p
+  %b Email:
+  = @person.email
+%p
+  %b Job:
+  = @person.job
+%p
+  %b Bio:
+  = @person.bio
+%p
+  %b Gender:
+  = @person.gender
+%p
+  %b Birthdate:
+  = @person.birthdate
+%p
+  %b Picture:
+  = @person.picture
+
+= link_to 'Edit', edit_person_path(@person)
+\|
+= link_to 'Back', people_path
