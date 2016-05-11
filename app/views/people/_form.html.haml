@@ -1,34 +1,45 @@
-= form_for @person do |f|
-  - if @person.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
-      %ul
-        - @person.errors.full_messages.each do |msg|
-          %li= msg
+:javascript
+  $(document).ready(function(){
+    $('select').material_select();
+  });
 
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :job
-    = f.text_field :job
-  .field
-    = f.label :bio
-    = f.text_area :bio
-  .field
-    = f.label :gender
-    = f.text_field :gender
-  .field
-    = f.label :birthdate
-    = f.date_select :birthdate
-  .field
-    = f.label :picture
-    = f.text_field :picture
-  .actions
-    = f.submit 'Save'
+.row.form.col.m10.offset-m3
+  = form_for @person do |f|
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_field :first_name
+        = f.label :first_name, class: 'active'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_field :last_name
+        = f.label :last_name, class: 'active'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_field :email
+        = f.label :email, class: 'active'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_field :job
+        = f.label :job, class: 'active'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_area :bio, class: 'validate materialize-textarea'
+        = f.label :bio, class: 'active'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.date_select :birthdate
+        = f.label :birthdate, class: 'active'
+    .row
+      .input-field.col.s12.m5.l8.center
+        = f.radio_button :gender, 'M', class: 'validate with-gap', checked: true
+        = f.label :gender, "Male", class: 'active', value: 'M'
+        = f.radio_button :gender, 'F', class: 'validate with-gap'
+        = f.label :gender, "Female", class: 'active', value: 'F'
+    .row
+      .input-field.col.s12.m6.l8
+        = f.text_field :picture
+        = f.label :picture, class: 'active'
+    .actions.col.m6.l8.center
+      %button.btn.waves-effect.waves-light{ type: 'submit' }
+        Save
+      = link_to "Go Back", people_path, class: 'btn'
