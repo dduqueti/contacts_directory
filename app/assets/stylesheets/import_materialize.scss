@@ -1,7 +1,7 @@
 @import "materialize/components/color";
-$primary-color: color("light-blue", "darken-3") !default;
+$primary-color: color("light-blue", "darken-4") !default;
 $secondary-color: color("green", "lighten-1") !default;
-$link-color: color("green", "lighten-1") !default;
+$link-color: color("light-blue", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 @import "materialize";

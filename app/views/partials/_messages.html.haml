@@ -1,0 +1,15 @@
+- unless notice.blank?
+	.row.notice
+		.card.col.s12.green.lighten-1
+			.card-content.white-text
+				%span.card-title
+					Notice
+				%p= notice.html_safe
+
+- unless alert.blank?
+	.row.alert
+		.card.col.s12.red.lighten-1
+			.card-content.white-text
+				%span.card-title
+					Alert
+				%p= alert.html_safe
