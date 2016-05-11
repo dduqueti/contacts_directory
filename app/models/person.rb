@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
 	# Class methods
 
 	def self.list
-		Person.all
+		Person.order(:first_name, :last_name)
 	end
 
 	# Instance methods
