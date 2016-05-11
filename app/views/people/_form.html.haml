@@ -1,33 +1,30 @@
-:javascript
-  $(document).ready(function(){
-    $('select').material_select();
-  });
+= javascript_include_tag 'people/people'
 
 .row.form.col.m10.offset-m3
   = form_for @person do |f|
     .row
       .input-field.col.s12.m6.l8
-        = f.text_field :first_name
+        = f.text_field :first_name, length: '75'
         = f.label :first_name, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.text_field :last_name
+        = f.text_field :last_name, length: '75'
         = f.label :last_name, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.text_field :email
+        = f.text_field :email, length: '254'
         = f.label :email, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.text_field :job
+        = f.text_field :job, length: '75'
         = f.label :job, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.text_area :bio, class: 'validate materialize-textarea'
+        = f.text_area :bio, length: '254', class: 'validate materialize-textarea'
         = f.label :bio, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.date_select :birthdate
+        = f.date_field :birthdate, as: :date, html5: true, class:'datepicker'
         = f.label :birthdate, class: 'active'
     .row
       .input-field.col.s12.m5.l8.center
@@ -42,4 +39,4 @@
     .actions.col.m6.l8.center
       %button.btn.waves-effect.waves-light{ type: 'submit' }
         Save
-      = link_to "Go Back", people_path, class: 'btn'
+      = link_to "Go Back", locals[:back_path], class: 'btn'

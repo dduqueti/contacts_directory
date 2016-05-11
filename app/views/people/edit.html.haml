@@ -1,4 +1,4 @@
 #new-contact.row
   %h3 Edit Contact
 
-= render 'form'
+= render 'form', locals: { back_path: person_path(@person)}
