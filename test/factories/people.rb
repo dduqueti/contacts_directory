@@ -21,9 +21,9 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     email { Faker::Internet.email }
     job { Faker::Company.profession }
-    bio { Faker::Company.catch_phrase }
+    bio { Faker::StarWars.quote }
     gender "M"
-    birthdate { Faker::Date.between(60.years.ago, 10.years.ago) }
+    birthdate { Faker::Date.between(60.years.ago, 20.years.ago) }
     picture { Faker::Internet.url }
   end
 end
