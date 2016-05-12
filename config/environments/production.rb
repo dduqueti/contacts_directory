@@ -79,16 +79,16 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'contacts-directory.herokuapp.com' }
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings =
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings =
   {
 
-    :address            => 'smtp.gmail.com',
+    :address            => 'smtp.sendgrid.net',
     :port               => 587,
-    :domain             => 'gmail.com', #you can also use google.com
+    :domain             => Rails.application.secrets.domain_name, #you can also use google.com
     :authentication     => :plain,
-    :user_name          => Rails.application.secrets.email_provider_username,
-    :password           => Rails.application.secrets.email_provider_password
+    :user_name          => Rails.application.secrets.sengrid_username,
+    :password           => Rails.application.secrets.sengrid_password
   }
 
   config.gem 'redis'
