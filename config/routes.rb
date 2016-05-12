@@ -1,14 +1,12 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
-  mount Resque::Server.new, at: "/resque"
+  mount Resque::Server.new, at: '/resque'
 
   root 'home#index'
   resources :people
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

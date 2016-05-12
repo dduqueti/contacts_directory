@@ -15,9 +15,10 @@
 #  updated_at :datetime         not null
 #
 
-require 'uri'
-
 class Person < ActiveRecord::Base
+
+  require 'uri'
+
 
   # Constants
 
@@ -35,7 +36,8 @@ class Person < ActiveRecord::Base
                     uniqueness: true,
                     length: { maximum: 254 },
                     email: true
-  validate :valid_picture_url, :dob_not_in_future
+  validates :picture, presence: true, url: true
+  validate :dob_not_in_future
 
   # Callbacks
   after_create :deliver_created_email
@@ -45,10 +47,6 @@ class Person < ActiveRecord::Base
 
   def self.list
     Person.order(:first_name, :last_name)
-  end
-
-  def self.get_all_emails
-    Person.pluck(:email)
   end
 
   # Instance methods
@@ -64,16 +62,6 @@ class Person < ActiveRecord::Base
 
   private
 
-  # Custom validation methods
-
-  # Validates URL format
-  def valid_picture_url
-    uri = URI.parse(picture)
-    uri.kind_of?(URI::HTTP)
-  rescue URI::InvalidURIError
-    errors.add(:picture, "must have a valid URL")
-  end
-
   # Validates that birthday is not in the future
   def dob_not_in_future
     if birthdate.present? && birthdate > Date.today
@@ -82,12 +70,12 @@ class Person < ActiveRecord::Base
   end
 
   def deliver_created_email
-    options = { created_id: self.id }
+    options = { created_id: id }
     Resque.enqueue(PersonMailerWorker, 'person_created', options)
   end
 
   def deliver_destroyed_email
-    options = { managed_full_name: self.full_name }
+    options = { managed_full_name: full_name }
     Resque.enqueue(PersonMailerWorker, 'person_deleted', options)
   end
 end

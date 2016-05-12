@@ -43,6 +43,9 @@ gem 'haml-rails'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
 
+# URL validator
+gem 'validate_url'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
@@ -72,7 +75,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.3.0'
-  gem 'shoulda-matchers', '~> 2.0'
+  gem 'minitest-spec-rails'
   gem 'faker'
 end
 

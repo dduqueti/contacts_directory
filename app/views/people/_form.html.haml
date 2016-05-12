@@ -4,7 +4,7 @@
   = form_for @person do |f|
     .row
       .input-field.col.s12.m6.l8
-        = f.text_field :first_name, length: '75'
+        = f.text_field :first_name
         = f.label :first_name, class: 'active'
     .row
       .input-field.col.s12.m6.l8
@@ -20,7 +20,7 @@
         = f.label :job, class: 'active'
     .row
       .input-field.col.s12.m6.l8
-        = f.text_area :bio, length: '254', class: 'validate materialize-textarea'
+        = f.text_area :bio, length: '254', class: 'materialize-textarea'
         = f.label :bio, class: 'active'
     .row
       .input-field.col.s12.m6.l8
@@ -28,9 +28,9 @@
         = f.label :birthdate, class: 'active'
     .row
       .input-field.col.s12.m5.l8.center
-        = f.radio_button :gender, 'M', class: 'validate with-gap', checked: true
+        = f.radio_button :gender, 'M', class: 'with-gap', checked: true
         = f.label :gender, "Male", class: 'active', value: 'M'
-        = f.radio_button :gender, 'F', class: 'validate with-gap'
+        = f.radio_button :gender, 'F', class: 'with-gap'
         = f.label :gender, "Female", class: 'active', value: 'F'
     .row
       .input-field.col.s12.m6.l8
