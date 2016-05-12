@@ -28,6 +28,7 @@
         = f.label :birthdate, class: 'active'
     .row
       .input-field.col.s12.m5.l8.center
+        = f.label :gender, class: 'active'
         = f.radio_button :gender, 'M', class: 'with-gap', checked: true
         = f.label :gender, "Male", class: 'active', value: 'M'
         = f.radio_button :gender, 'F', class: 'with-gap'
