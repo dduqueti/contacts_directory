@@ -127,6 +127,7 @@ GEM
     mysql2 (0.3.21)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -162,6 +163,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -259,10 +265,12 @@ DEPENDENCIES
   materialize-sass
   minitest-spec-rails
   mysql2 (~> 0.3.18)
+  pg
   pry-byebug
   pry-rails
   quiet_assets (= 1.1.0)
   rails (= 4.2.4)
+  rails_12factor
   resque
   resque-web
   sass-rails (~> 5.0)
