@@ -1,16 +1,17 @@
 class PersonMailer < ApplicationMailer
-  def person_created(user_id, first_name, last_name, created_id)
-    @person = Person.find user_id
-    @first_name = first_name
-    @last_name = last_name
-    @created_id = created_id
-    mail(to: @person.email, subject: 'Contacts Directory - New Contact Added')
+  include Rails.application.routes.url_helpers
+
+  def person_created(user_id, options = {})
+    @recipient = Person.find user_id
+    @created_person = Person.find options['created_id']
+    @url = person_url(@created_person)
+    mail(to: @recipient.email, subject: 'Contacts Directory - New Contact Added')
   end
 
-  def person_deleted(user_id, first_name, last_name)
-    @person = Person.find user_id
-    @first_name = first_name
-    @last_name = last_name
-    mail(to: @person.email, subject: 'Contacts Directory - Contact recently deleted')
+  def person_deleted(user_id, options = {})
+    @recipient = Person.find user_id
+    @managed_full_name = options['managed_full_name']
+    @url = people_url
+    mail(to: @recipient.email, subject: 'Contacts Directory - Contact recently deleted')
   end
 end

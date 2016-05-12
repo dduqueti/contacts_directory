@@ -1,18 +1,18 @@
 - unless notice.blank?
-	.row.notice
-		.card.col.s12.green.lighten-1
-			.card-content.white-text
-				%span.card-title
-					Notice
-				%p= notice.html_safe
+  .row.notice
+    .card.col.s12.green.lighten-1
+      .card-content.white-text
+        %span.card-title
+          Notice
+        %p= notice.html_safe
 
 - if @person && @person.errors.any?
-	.row.alert
-		.card.col.s12.red.lighten-1
-			.card-content.white-text
-				%span.card-title
-					Alert
-				%ul
-					- @person.errors.full_messages.each do |msg|
-						%p
-							= msg.html_safe
+  .row.alert
+    .card.col.s12.red.lighten-1
+      .card-content.white-text
+        %span.card-title
+          Alert
+        %ul
+          - @person.errors.full_messages.each do |msg|
+            %p
+              = msg.html_safe

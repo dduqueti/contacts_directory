@@ -1,0 +1,11 @@
+%h3
+  = "Hello #{@recipient.full_name}"
+%p
+  = "Please notice that #{@created_person.full_name} has joined the application."
+%p
+  Check our new contact profile
+  = link_to "Profile", @url
+
+%p
+  Regards,
+  Contacts Directory

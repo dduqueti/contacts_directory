@@ -1,0 +1,11 @@
+%h3
+  = "Hello #{@recipient.full_name}"
+%p
+  = "Please notice that #{@managed_full_name } has left the application."
+%p
+  Check our updated list of contacts
+  = link_to "here", @url
+
+%p
+  Regards,
+  Contacts Directory

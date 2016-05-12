@@ -1,7 +1,7 @@
  $(document).ready(function(){
     $('select').material_select();
-	  $('.datepicker').pickadate({
-	    selectMonths: true,
-	    selectYears: 99
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 99
     });
   });
