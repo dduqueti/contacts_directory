@@ -3,14 +3,20 @@ Share your contacts and meet new people!
 
 In Contacts Directory you can add and delete contacts and receive notifications when others do the same!
 
+[![Build Status](https://travis-ci.org/dduqueti/contacts_directory.svg?branch=master)](https://travis-ci.org/dduqueti/contacts_directory)
+
 # Delivery Date
 
-* 11-May-2016
+* 12-May-2016
 
 # Versions
 
 * Ruby: 2.2.0-p0
 * Rails: 4.2.4
+
+# DEMO
+
+You can access this application on it's heroku site: [Contacts Directory!](http://contacts-directory.herokuapp.com/)
 
 # Dependencies
 
@@ -18,12 +24,8 @@ Contacts Directory uses:
 
 * MySQL Database
 * Redis (3.3.0) (install with homebrew using  `brew install redis`)
-* MailCatcher (0.6.4) for local mail catching (install with `gem install mailcatcher`) 
+* MailCatcher (0.6.4) for local mail catching (install with `gem install mailcatcher`)
 
-
-# Heroku
-
-You can access this application on it's heroku site `http://contacts-directory.herokuapp.com/`
 # Local Setup
 
 Prepare the project and create some seed records with:
